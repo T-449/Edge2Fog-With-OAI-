@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "trackingareaidentity.h": "c",
+        "intertask_interface.h": "c",
+        "intertask_interface_types.h": "c",
+        "tasks_def.h": "c",
+        "messages_def.h": "c",
+        "s6a_messages_def.h": "c",
+        "nas_itti_messaging.h": "c",
+        "mme_app_defs.h": "c",
+        "3gpp_23.003.h": "c",
+        "s6a_messages_types.h": "c",
+        "log.h": "c",
+        "bsafe.h": "c",
+        "unistd.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
+}

@@ -1,0 +1,19 @@
+src/nas/emm/Authentication.c:371:  nas_itti_auth_info_req
+
+src/nas/nas_itti_messaging.c:500:  itti_send_msg_to_task(TASK_S6A, INSTANCE_DEFAULT, message_p);
+
+component/oai-mme/src/common/itti/intertask_interface.c:357: *itti_alloc_new_message
+
+component/oai-mme/src/common/3gpp_23.003.h
+
+component/oai-mme/src/common/s6a_messages_types.h
+
+files to see how to retrieve vectors:
+	component/oai-mme/src/common/common_types.h: 396
+	component/oai-mme/src/common/security_types.h: 111
+
+
+changing in nas_emm_task.c in line 177, call to function startClient
+added function startClient in nas_emm_task.c: 77
+added function hextoChar in nas_emm_task.c: 58
+
