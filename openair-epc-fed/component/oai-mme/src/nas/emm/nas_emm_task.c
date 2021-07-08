@@ -161,7 +161,7 @@ void startClient(s6a_auth_info_ans_t *aia)
 	}
 	OAILOG_DEBUG(LOG_S6A, "Client socket created\n");
 	
-	server.sin_addr.s_addr = inet_addr("192.168.0.102");
+	server.sin_addr.s_addr = inet_addr("192.168.0.100");
 	server.sin_family = AF_INET;
 	server.sin_port = htons( PORT );
 

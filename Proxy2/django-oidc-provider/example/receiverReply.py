@@ -6,7 +6,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
 django.setup()
 
 # vUser_IP = '192.168.0.103'
-vUser_IP = '192.168.0.102'
+vUser_IP = '192.168.0.100'
 # vUser_IP = '192.168.0.107'
 # vUser_IP = '127.0.0.1'
 vUser_SERVER_PORT = 10400  # this is the server port for receiving auth Challenge from home edge MME

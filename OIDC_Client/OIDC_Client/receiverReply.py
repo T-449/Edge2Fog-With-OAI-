@@ -19,7 +19,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as fog_serverSocket:
                 if not authChallenge:
                     break
                 else:
-                    authChallenge = authChallenge.decode('utf-8')
+                    authChallenge = authChallenge.decode()
                     print(authChallenge)
                     if authChallenge == '200 OK':
                         stateFile = open('../state.txt', 'w')
