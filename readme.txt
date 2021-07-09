@@ -22,7 +22,7 @@ DEPLOYMENT:
 	a) ./deployNetwork.sh
 	b) ./deployCassandra.sh
 	c) ./deployHSS.sh
-	d) ./deployCassandra.sh
+	d) ./deployMME.sh
 
 2) Run all receiverReply.py and receiverRequest.py files in OIDC_Client and Proxy2
 
