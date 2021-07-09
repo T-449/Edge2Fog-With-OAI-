@@ -43,7 +43,8 @@ POST-DEPLOYMENT:
 
 The login button in the localhost:9999/client page will be disabled. Press 's' in the temporary UE. Once the UE is authenticated the login button will be enabled in the same page. After pressing login you will be authenticated to the fog using OIDC.
 
-For running the emulation again go to localhost:9999/client page from the browser and rerun the following :
+For running the emulation again go to localhost:9999/client page from the browser. The login button will be disabled
+Rerun the following :
 	a) OIDC_Client/OIDC_Client/tempUE.py
 	b) ./deployMME.sh
 	c) ./resCalculator
