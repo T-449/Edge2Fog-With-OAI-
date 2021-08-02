@@ -56,7 +56,7 @@ Downloading and configuring OAI:
 
 	Issues:
 		a) If deployCassandra.sh shows error run again
-		b) If deployHSS.sh shows that it can't find IP 192.168.62.2 a restart helped in my case
+		b) If deployHSS.sh shows that it can't find IP 192.168.62.2 a device restart helped in my case
 
 	// If everything has connected properly proceed for the next steps.
 
@@ -72,16 +72,18 @@ Downloading and configuring OAI:
 
 	n) Copy and replace filestochange/tasks_def.h in openair-epc-fed/component/oai-mme/src/common directory
 
-	o) Provide IP of your device in Proxy2/django-oidc-provider/example/receiverReply.py: 9 (vUser_IP = 'IP of your device')	// the line number may not match accurately
+	o) Run buildMME.sh and wait for completion	// it may seem stuck at some point but its not
 
-	p) Run buildMME.sh and wait for completion	// it may seem stuck at some point but its not
-
-	q) Run deployMME.sh
+	p) Run deployMME.sh
 
 
 Deployment:
 
+	// For this implementation I ran the edge on one device and UE, OIDC_Client/Fog, Proxy on a seperate device. I used a mediator on the device runnung edge to communicate with the proxy.
+
 	// Install django==2.2.1, django-oidc-provider in the venv of OIDC_Client and Proxy2. Please use the specific version of django
+
+	//   The OIDC_Clinet, Proxy must run on the same device for this implementation
 
 	a) Run all receiverReply.py and receiverRequest.py files in OIDC_Client and Proxy2
 
@@ -93,15 +95,32 @@ Deployment:
 
 	d) Run django server at port 9999 for OIDC_Client	// python manage.py runserver 9999
 
-	e) Run django server at default port(8000) for Proxy2	// run python manage.py runserver from within Proxy2/django-oidc-provider/example directory
+	e) Run django server at default port(8000) for Proxy	// run python manage.py runserver from within Proxy/django-oidc-provider/example directory
 
 	f) Go to localhost:9999/client from browser
 
 	g) If you want to login to django admin use Username: admin, Password:admin
 
+	h) Run mediator.py. Change the IP addresses accordingly. mediator.py connects the proxy and the edge
 
 Post-deployment:
 
-The login button in the localhost:9999/client page will be disabled. Press 's' in the temporary UE. Once the UE is authenticated the login button will be enabled in the same page. After pressing login you will be authenticated to the fog using OIDC.
+The login button in the localhost:9999/client page will be disabled. Press 's' in the temporary UE. Once the UE is authenticated the login button will be enabled in the same page. After pressing login you will be authenticated to the fog using OIDC. After clicking 'proceed to your account' you will see a html page with 'clicks: 0'.
 
 For running the emulation again go to localhost:9999/client page from the browser. The login button will be disabled. Rerun deployMME.sh
+
+
+
+Deployment for State-Transfer:
+
+	// First do all those mentioned in the previous deployment
+	
+	// For this part you will need to have node.js and npm installed
+	
+	// The OIDC_Clinet, Naive_EdgeAppServer/Frontend, Naive_EdgeAppServer/Backend, Proxy must run on the same device for this implementation
+	
+	a) Run 'npm start' from terminal within Naive_EdgeAppServer/Frontend and  Naive_EdgeAppServer/Backend
+
+	b) Go to localhost:459998 from browser and click the button there. With every click your click count will increase. You can see it in the terminal running frontend
+
+	c) Now doing the post-deployment steps previously mentioned will show the number of clicks in the html page that matches the one from the frontend terminal
