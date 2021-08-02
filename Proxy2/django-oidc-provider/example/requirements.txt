@@ -1,2 +1,0 @@
-django
-https://github.com/juanifioren/django-oidc-provider/archive/master.zip
