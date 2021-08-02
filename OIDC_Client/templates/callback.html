@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://www.sakimura.org/test/openidconnect.js"></script>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <h1>Your login was successful</h1>
+    <form action="userAccount" method="post">
+        {% csrf_token %}
+        <input type="hidden" id="token" name="tok" value="">
+        <input type="submit" value="Proceed to your account">
+    </form>
+
+    <script type="text/javascript">
+        // Get Access Token
+
+        const token = OIDC.getAccessToken();
+
+        // Make userinfo request using access_token.
+        if (token !== null) {
+            document.getElementById("token").value = token;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+DELETE FROM <table_name>; 
+DELETE FROM SQLite_sequence WHERE name='<table_name>';
